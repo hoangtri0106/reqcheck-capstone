@@ -1,0 +1,8 @@
+Hệ thống đặt sân bóng mini.
+
+YC1: Khách hàng đăng ký tài khoản bằng email và mật khẩu tối thiểu 8 ký tự.
+YC2: Khách hàng xem lịch trống của từng sân theo ngày.
+YC3: Khách hàng được hủy lượt đặt sân miễn phí vào bất cứ lúc nào trước giờ đá.
+YC4: Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ.
+YC5: Chủ sân xem danh sách lượt đặt theo ngày.
+YC6: Nếu khách hàng hủy lượt đặt sân, hệ thống thu 100% phí và không hoàn tiền trong mọi trường hợp.

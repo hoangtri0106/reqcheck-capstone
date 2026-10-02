@@ -1,0 +1,63 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "ambiguous",
+      "quotes": ["Hệ thống quản lý thư viện của trường cần chạy nhanh"],
+      "question": "Thế nào là 'chạy nhanh'? Hệ thống yêu cầu thời gian phản hồi (response time) tối đa là bao nhiêu giây?"
+    },
+    {
+      "id": "Q2",
+      "type": "missing",
+      "quotes": ["phục vụ được nhiều người dùng cùng lúc"],
+      "question": "Số lượng người dùng đồng thời (concurrent users) tối đa mà hệ thống cần đáp ứng là bao nhiêu?"
+    },
+    {
+      "id": "Q3",
+      "type": "ambiguous",
+      "quotes": ["Sinh viên có thể mượn nhiều sách"],
+      "question": "Số lượng sách tối đa mà một sinh viên được phép mượn cùng một lúc là bao nhiêu?"
+    },
+    {
+      "id": "Q4",
+      "type": "missing",
+      "quotes": ["trả sách đúng hạn"],
+      "question": "Thời hạn cho mượn một cuốn sách được quy định là bao lâu (số ngày)?"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Hệ thống quản lý thư viện phải có giao diện dễ sử dụng, bảo mật tốt, hiệu năng cao và hỗ trợ nhiều người dùng đồng thời.",
+      "source_quote": "Hệ thống quản lý thư viện của trường cần chạy nhanh, giao diện dễ dùng, bảo mật tốt và phục vụ được nhiều người dùng cùng lúc."
+    },
+    {
+      "id": "R2",
+      "text": "Sinh viên có thể thực hiện mượn nhiều sách.",
+      "source_quote": "Sinh viên có thể mượn nhiều sách"
+    },
+    {
+      "id": "R3",
+      "text": "Sinh viên thực hiện trả sách đúng hạn.",
+      "source_quote": "và trả sách đúng hạn."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC1",
+      "req_id": "R2",
+      "type": "happy",
+      "given": "Sinh viên đang đăng nhập vào hệ thống và chưa vượt quá hạn mức mượn sách",
+      "when": "Sinh viên chọn mượn nhiều cuốn sách hợp lệ",
+      "then": "Hệ thống xác nhận mượn sách thành công và ghi nhận thông tin"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "VAGUE_REQUIREMENT",
+      "message": "Các tiêu chí phi chức năng như 'chạy nhanh', 'bảo mật tốt', 'giao diện dễ dùng' chưa được định lượng cụ thể."
+    }
+  ]
+}

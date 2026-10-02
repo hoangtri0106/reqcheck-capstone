@@ -1,0 +1,101 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "contradiction",
+      "quotes": [
+        "Khách hàng được hủy lượt đặt sân miễn phí vào bất cứ lúc nào trước giờ đá.",
+        "Nếu khách hàng hủy lượt đặt sân, hệ thống thu 100% phí và không hoàn tiền trong mọi trường hợp."
+      ],
+      "question": "Tài liệu đang có quy định mâu thuẫn giữa YC3 (hủy miễn phí bất cứ lúc nào trước giờ đá) và YC6 (thu 100% phí và không hoàn tiền trong mọi trường hợp khi hủy). Quy định nào mới là chính xác?"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Khách hàng đăng ký tài khoản bằng email và mật khẩu tối thiểu 8 ký tự.",
+      "source_quote": "YC1: Khách hàng đăng ký tài khoản bằng email và mật khẩu tối thiểu 8 ký tự."
+    },
+    {
+      "id": "R2",
+      "text": "Khách hàng xem lịch trống của từng sân theo ngày.",
+      "source_quote": "YC2: Khách hàng xem lịch trống của từng sân theo ngày."
+    },
+    {
+      "id": "R3",
+      "text": "Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ.",
+      "source_quote": "YC4: Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ."
+    },
+    {
+      "id": "R4",
+      "text": "Chủ sân xem danh sách lượt đặt theo ngày.",
+      "source_quote": "YC5: Chủ sân xem danh sách lượt đặt theo ngày."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC1",
+      "req_id": "R1",
+      "type": "happy",
+      "given": "Khách hàng ở trang đăng ký",
+      "when": "Khách hàng nhập email hợp lệ và mật khẩu có từ 8 ký tự trở lên",
+      "then": "Hệ thống tạo thành công tài khoản mới"
+    },
+    {
+      "id": "AC2",
+      "req_id": "R1",
+      "type": "boundary",
+      "given": "Khách hàng ở trang đăng ký",
+      "when": "Khách hàng nhập mật khẩu có đúng 8 ký tự",
+      "then": "Hệ thống chấp nhận và tạo tài khoản"
+    },
+    {
+      "id": "AC3",
+      "req_id": "R1",
+      "type": "negative",
+      "given": "Khách hàng ở trang đăng ký",
+      "when": "Khách hàng nhập mật khẩu có dưới 8 ký tự",
+      "then": "Hệ thống báo lỗi không đủ số lượng ký tự yêu cầu"
+    },
+    {
+      "id": "AC4",
+      "req_id": "R2",
+      "type": "happy",
+      "given": "Khách hàng chọn một sân cụ thể và một ngày cụ thể",
+      "when": "Khách hàng yêu cầu xem lịch",
+      "then": "Hệ thống hiển thị danh sách các khung giờ trống của sân đó trong ngày"
+    },
+    {
+      "id": "AC5",
+      "req_id": "R3",
+      "type": "happy",
+      "given": "Khách hàng đã thực hiện giữ chỗ sân",
+      "when": "Khách hàng hoàn tất thanh toán chuyển khoản trong thời gian dưới hoặc bằng 15 phút",
+      "then": "Hệ thống xác nhận thanh toán thành công và giữ lịch"
+    },
+    {
+      "id": "AC6",
+      "req_id": "R3",
+      "type": "negative",
+      "given": "Khách hàng đã thực hiện giữ chỗ sân",
+      "when": "Quá thời hạn 15 phút kể từ lúc giữ chỗ mà chưa thanh toán",
+      "then": "Hệ thống tự động hủy lượt giữ chỗ"
+    },
+    {
+      "id": "AC7",
+      "req_id": "R4",
+      "type": "happy",
+      "given": "Chủ sân đã đăng nhập vào hệ thống và chọn một ngày cụ thể",
+      "when": "Chủ sân truy cập mục danh sách đặt sân",
+      "then": "Hệ thống hiển thị danh sách tất cả các lượt đặt sân trong ngày đó"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "CONTRADICTION_DETECTED",
+      "message": "Phát hiện mâu thuẫn nghiệp vụ giữa YC3 và YC6 liên quan đến chính sách hủy sân và hoàn tiền."
+    }
+  ]
+}

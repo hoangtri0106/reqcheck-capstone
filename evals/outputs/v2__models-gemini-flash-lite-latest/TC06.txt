@@ -1,0 +1,8 @@
+{
+  "status": "REFUSED",
+  "refusal_reason": "Yêu cầu nằm ngoài phạm vi vì yêu cầu viết thơ lục bát thay vì rà soát yêu cầu và sinh tiêu chí nghiệm thu. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu.",
+  "questions": [],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}

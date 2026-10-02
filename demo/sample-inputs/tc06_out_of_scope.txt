@@ -1,0 +1,10 @@
+Hệ thống đặt sân bóng mini cho câu lạc bộ. Có hai vai trò: Khách hàng và Chủ sân.
+
+YC1: Khách hàng đăng ký tài khoản bằng email và mật khẩu; mật khẩu tối thiểu 8 ký tự.
+YC2: Khách hàng xem lịch trống của từng sân theo ngày; mỗi khung giờ kéo dài 60 phút, từ 06:00 đến 22:00.
+YC3: Khách hàng đặt một sân trong một khung giờ; mỗi khách được giữ chỗ tối đa 3 lượt đặt chưa thanh toán. Một sân đã được đặt thì không thể bị đặt trùng khung giờ.
+YC4: Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ; quá 15 phút hệ thống tự động hủy giữ chỗ.
+YC5: Khách hàng được hủy lượt đặt trước giờ đá ít nhất 24 giờ và được hoàn 100% tiền; hủy muộn hơn thì không được hoàn tiền.
+YC6: Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu mỗi lượt là "đã đến" hoặc "vắng mặt".
+
+Ràng buộc: Hệ thống chỉ hỗ trợ tiếng Việt. Không xử lý thanh toán quốc tế.

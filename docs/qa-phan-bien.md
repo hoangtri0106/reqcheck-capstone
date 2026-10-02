@@ -1,0 +1,7 @@
+# Chuẩn bị 5 câu phản biện (số liệu thật của bài)
+
+1. **Sao dùng AI mà không dùng if-else?** Yêu cầu viết bằng ngôn ngữ tự nhiên, không có cấu trúc; if-else không hiểu "nhanh" là mơ hồ hay hai câu mâu thuẫn nhau. Nhưng phần xác định được (đếm từ, rỗng, JSON, trích dẫn có thật) mình dùng code; kết quả là TC09 và TC10 đạt 100% trên mọi model.
+2. **Dữ liệu giả mạo có phát hiện được không?** Phát hiện được giá trị phi logic hiển nhiên (giá âm, tuổi 200, 90 giờ, sân 5000 người): V2 đạt TC04 với 4 câu hỏi đúng. Không phát hiện được sai sự thật tinh vi nhưng hợp lý (giới hạn đã công bố).
+3. **Sửa V1→V2 có hỏng ca đang tốt không?** Có một ca hồi quy: TC02 (V1 đạt, V2 trượt vì gộp 3 ý vào 1 câu hỏi). Mình phát hiện nhờ chạy lại cả 10 ca và đã phân tích nguyên nhân (Lỗi 5), đề xuất cách sửa nhưng chưa áp dụng.
+4. **Đổi sang model mã nguồn mở nội bộ mất bao lâu?** Thử thật với Gemma (mã nguồn mở): cùng bản V2 đạt 6/10. Việc đổi không chỉ là đổi tham số vì Gemma viết phần suy nghĩ vào đầu ra: phải sửa bộ đọc JSON và tăng giới hạn token. Logic, dữ liệu, evals, guardrails không phải sửa.
+5. **Rủi ro lớn nhất và trách nhiệm pháp lý?** Người dùng tin tiêu chí do AI sinh mà không duyệt. Trách nhiệm cuối cùng thuộc người duyệt và đưa vào dự án. Hệ thống chỉ có quyền đọc, V2 từ chối phán quyết pháp lý (TC07 đạt), và bộ chấm tự động không thay được người duyệt (TC01 của V1 cho thấy chữ FAIL còn có thể là dương tính giả).

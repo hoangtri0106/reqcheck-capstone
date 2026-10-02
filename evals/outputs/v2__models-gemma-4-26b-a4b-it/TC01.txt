@@ -1,0 +1,246 @@
+<thought>*   Role: ReqCheck (Software Requirement Review Assistant).
+    *   Task: Review software requirements and generate Acceptance Criteria (Given/When/Then).
+    *   Input: `<user_instruction>` and `<document>`.
+    *   Output Format: Single JSON object (no markdown, no extra text).
+    *   Status Logic:
+        *   `REFUSED`: Out of scope, high risk, non-software doc, > 2000 words.
+        *   `NEEDS_CLARIFICATION`: Missing core info, ambiguous terms, contradictions, illogical values.
+        *   `OK`: All requirements extracted, ACs generated (including boundary and negative types), no blocking questions.
+
+    *   `user_instruction`: "Phân tích tài liệu yêu cầu này và tạo Acceptance Criteria." (Standard instruction).
+    *   `document`:
+        *   Context: Mini football pitch booking system. Roles: Customer, Owner.
+        *   YC1: Registration (email, password, min 8 chars).
+        *   YC2: View schedule (by day, 60-min slots, 06:00-22:00).
+        *   YC3: Booking (1 pitch/slot, max 3 unpaid bookings per customer, no double booking).
+        *   YC4: Payment (bank transfer, within 15 mins, auto-cancel after 15 mins).
+        *   YC5: Cancellation (min 24h before match = 100% refund; later = no refund).
+        *   YC6: Owner view (daily list, mark "arrived" or "absent").
+        *   Constraints: Vietnamese only, no international payment.
+
+    *   *Scope Check*: It's a software requirement document. OK.
+    *   *Length Check*: Well under 2000 words. OK.
+    *   *Risk Check*: Not legal/medical/high-risk judgment. OK.
+    *   *Content Analysis*:
+        *   YC1: Clear.
+        *   YC2: Clear.
+        *   YC3: Clear.
+        *   YC4: Clear.
+        *   YC5: Clear.
+        *   YC6: Clear.
+        *   Constraints: Clear.
+    *   *Ambiguity/Missing/Contradiction/Illogical*:
+        *   YC1: Password min 8 chars. (Boundary: 7 vs 8).
+        *   YC2: Time slots. (Boundary: 06:00, 22:00).
+        *   YC3: Max 3 unpaid bookings. (Boundary: 3 vs 4). Double booking prevention.
+        *   YC4: 15 mins limit. (Boundary: 14 vs 15 vs 16).
+        *   YC5: 24h cancellation. (Boundary: 24h 1m vs 23h 59m).
+        *   YC6: Owner actions.
+    *   *Potential Minor Gaps*:
+        *   What happens if the email is invalid? (Minor gap, can proceed).
+        *   What happens if the user tries to book a slot that is already booked? (Covered in YC3).
+        *   What happens if the user cancels after 24h? (Covered in YC5).
+    *   *Decision*: Status = `OK`.
+
+    *   R1: Khách hàng đăng ký tài khoản bằng email và mật khẩu; mật khẩu tối thiểu 8 ký tự.
+    *   R2: Khách hàng xem lịch trống của từng sân theo ngày; mỗi khung giờ kéo dài 60 phút, từ 06:00 đến 22:00.
+    *   R3: Khách hàng đặt một sân trong một khung giờ; mỗi khách được giữ chỗ tối đa 3 lượt đặt chưa thanh toán. Một sân đã được đặt thì không thể bị đặt trùng khung giờ.
+    *   R4: Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ; quá 15 phút hệ thống tự động hủy giữ chỗ.
+    *   R5: Khách hàng được hủy lượt đặt trước giờ đá ít nhất 24 giờ và được hoàn 100% tiền; hủy muộn hơn thì không được hoàn tiền.
+    *   R6: Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu mỗi lượt là "đã đến" hoặc "vắng mặt".
+    *   R7: Hệ thống chỉ hỗ trợ tiếng Việt.
+    *   R8: Không xử lý thanh toán quốc tế.
+
+    *   *R1 (Registration)*:
+        *   AC1 (Happy): Given user enters valid email and password >= 8 chars, When clicks register, Then account created.
+        *   AC2 (Boundary/Negative): Given user enters password 7 chars, When clicks register, Then error message shown.
+    *   *R2 (Schedule)*:
+        *   AC3 (Happy): Given user selects a day, When views schedule, Then sees 60-min slots from 06:00 to 22:00.
+    *   *R3 (Booking)*:
+        *   AC4 (Boundary): Given user has 3 unpaid bookings, When tries to book 4th, Then booking denied.
+        *   AC5 (Negative): Given slot A is booked, When user tries to book slot A, Then booking denied.
+    *   *R4 (Payment)*:
+        *   AC6 (Boundary): Given user holds slot, When 15 mins pass without payment, Then system cancels booking.
+        *   AC7 (Happy): Given user pays within 15 mins, When payment confirmed, Then booking status updated.
+    *   *R5 (Cancellation)*:
+        *   AC8 (Boundary): Given user cancels 25 hours before, When request processed, Then 100% refund.
+        *   AC9 (Boundary/Negative): Given user cancels 23 hours before, When request processed, Then no refund.
+    *   *R6 (Owner)*:
+        *   AC10 (Happy): Given owner views daily list, When marks "đã đến", Then status updated.
+
+    *   `status`: "OK"
+    *   `refusal_reason`: null
+    *   `questions`: []
+    *   `requirements`: [R1...R8]
+    *   `acceptance_criteria`: [AC1...AC10]
+    *   `warnings`: []
+
+    *Self-Correction during drafting*:
+    - Ensure `source_quote` is exact.
+    - Ensure `type` in AC is `happy`, `boundary`, or `negative`.
+    - Ensure `R7` and `R8` are included as they are constraints.
+
+    *Refining AC types*:
+    - AC1 (R1): happy
+    - AC2 (R1): boundary (7 chars)
+    - AC3 (R2): happy
+    - AC4 (R3): boundary (3 vs 4)
+    - AC5 (R3): negative (double booking)
+    - AC6 (R4): boundary (15 mins)
+    - AC7 (R4): happy
+    - AC8 (R5): boundary (24h)
+    - AC9 (R5): negative (late cancellation)
+    - AC10 (R6): happy
+
+    *Checking constraints*:
+    - R7: "Hệ thống chỉ hỗ trợ tiếng Việt."
+    - R8: "Không xử lý thanh toán quốc tế."
+
+    *Wait, R7 and R8 are constraints, not necessarily functional requirements for ACs, but the prompt says "Tách mọi yêu cầu trong tài liệu thành requirements". I will include them.*
+
+    *Final check on JSON structure and rules*:
+    - No markdown.
+    - No extra text.
+    - Vietnamese.
+    - All quotes exact.
+
+    *Drafting JSON content*:
+    R1: "Khách hàng đăng ký tài khoản bằng email và mật khẩu; mật khẩu tối thiểu 8 ký tự."
+    R2: "Khách hàng xem lịch trống của từng sân theo ngày; mỗi khung giờ kéo dài 60 phút, từ 06:00 đến 22:00."
+    R3: "Khách hàng đặt một sân trong một khung giờ; mỗi khách được giữ chỗ tối đa 3 lượt đặt chưa thanh toán. Một sân đã được đặt thì không thể bị đặt trùng khung giờ."
+    R4: "Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ; quá 15 phút hệ thống tự động hủy giữ chỗ."
+    R5: "Khách hàng được hủy lượt đặt trước giờ đá ít nhất 24 giờ và được hoàn 100% tiền; hủy muộn hơn thì không được hoàn tiền."
+    R6: "Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu mỗi lượt là \"đã đến\" hoặc \"vắng mặt\"."
+    R7: "Hệ thống chỉ hỗ trợ tiếng Việt."
+    R8: "Không xử lý thanh toán quốc tế."
+
+    ACs:
+    AC1 (R1, happy): Given user enters valid email and password with 8 characters, When user submits registration, Then account is created successfully.
+    AC2 (R1, boundary): Given user enters valid email and password with 7 characters, When user submits registration, Then registration fails.
+    AC3 (R2, happy): Given user selects a specific date, When user views the schedule, Then the system displays 60-minute slots from 06:00 to 22:00.
+    AC4 (R3, boundary): Given a user already has 3 unpaid bookings, When the user attempts to make a 4th unpaid booking, Then the system denies the booking.
+    AC5 (R3, negative): Given a specific pitch and time slot is already booked, When another user attempts to book the same slot, Then the system prevents the booking.
+    AC6 (R4, boundary): Given a user has a held booking, When 15 minutes have passed without payment, Then the system automatically cancels the booking.
+    AC7 (R4, happy): Given a user has a held booking, When the user completes the bank transfer within 15 minutes, Then the booking is confirmed.
+    AC8 (R5, boundary): Given a user cancels a booking 24 hours or more before the match time, When the cancellation is processed, Then the user receives a 100% refund.
+    AC9 (R5, negative): Given a user cancels a booking less than 24 hours before the match time, When the cancellation is processed, Then the user receives no refund.
+    AC10 (R6, happy): Given the owner is viewing the daily booking list, When the owner marks a booking as "đã đến", Then the status of that booking is updated to "đã đến".
+
+    *Wait, I need to make sure I don't add "new" requirements. The constraints are part of the document. I'll include them.*
+
+    *Final check on "boundary" and "negative" requirement*:
+    - Boundary: AC2 (7 chars), AC4 (3 vs 4), AC6 (15 mins), AC8 (24h).
+    - Negative: AC5 (double booking), AC9 (late cancellation).
+    - Happy: AC1, AC3, AC7, AC10.
+    - All requirements covered.
+
+    *One detail*: "Mọi con số, tên riêng, thuật ngữ xuất hiện trong requirements và acceptance_criteria PHẢI có sẵn trong tài liệu."
+    - "đã đến", "vắng mặt", "15 phút", "24 giờ", "60 phút", "06:00", "22:00", "3 lượt", "8 ký tự". All good.
+
+    *Final JSON construction.*</thought>{
+  "status": "OK",
+  "refusal_reason": null,
+  "questions": [],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Khách hàng đăng ký tài khoản bằng email và mật khẩu; mật khẩu tối thiểu 8 ký tự.",
+      "source_quote": "Khách hàng đăng ký tài khoản bằng email và mật khẩu; mật khẩu tối thiểu 8 ký tự."
+    },
+    {
+      "id": "R2",
+      "text": "Khách hàng xem lịch trống của từng sân theo ngày; mỗi khung giờ kéo dài 60 phút, từ 06:00 đến 22:00.",
+      "source_quote": "Khách hàng xem lịch trống của từng sân theo ngày; mỗi khung giờ kéo dài 60 phút, từ 06:00 đến 22:00."
+    },
+    {
+      "id": "R3",
+      "text": "Khách hàng đặt một sân trong một khung giờ; mỗi khách được giữ chỗ tối đa 3 lượt đặt chưa thanh toán. Một sân đã được đặt thì không thể bị đặt trùng khung giờ.",
+      "source_quote": "Khách hàng đặt một sân trong một khung giờ; mỗi khách được giữ chỗ tối đa 3 lượt đặt chưa thanh toán. Một sân đã được đặt thì không thể bị đặt trùng khung giờ."
+    },
+    {
+      "id": "R4",
+      "text": "Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ; quá 15 phút hệ thống tự động hủy giữ chỗ.",
+      "source_quote": "Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ; quá 15 phút hệ thống tự động hủy giữ chỗ."
+    },
+    {
+      "id": "R5",
+      "text": "Khách hàng được hủy lượt đặt trước giờ đá ít nhất 24 giờ và được hoàn 100% tiền; hủy muộn hơn thì không được hoàn tiền.",
+      "source_quote": "Khách hàng được hủy lượt đặt trước giờ đá ít nhất 24 giờ và được hoàn 100% tiền; hủy muộn hơn thì không được hoàn tiền."
+    },
+    {
+      "id": "R6",
+      "text": "Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu mỗi lượt là \"đã đến\" hoặc \"vắng mặt\".",
+      "source_quote": "Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu mỗi lượt là \"đã đến\" hoặc \"vắng mặt\"."
+    },
+    {
+      "id": "R7",
+      "text": "Hệ thống chỉ hỗ trợ tiếng Việt.",
+      "source_quote": "Hệ thống chỉ hỗ trợ tiếng Việt."
+    },
+    {
+      "id": "R8",
+      "text": "Không xử lý thanh toán quốc tế.",
+      "source_quote": "Không xử lý thanh toán quốc tế."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC1",
+      "req_id": "R1",
+      "type": "happy",
+      "given": "Khách hàng nhập email hợp lệ và mật khẩu có 8 ký tự",
+      "when": "Khách hàng thực hiện đăng ký",
+      "then": "Tài khoản được tạo thành công"
+    },
+    {
+      "id": "AC2",
+      "req_id": "R1",
+      "type": "boundary",
+      "given": "Khách hàng nhập email hợp lệ và mật khẩu có 7 ký tự",
+      "when": "Khách hàng thực hiện đăng ký",
+      "then": "Hệ thống báo lỗi và không cho phép đăng ký"
+    },
+    {
+      "id": "AC3",
+      "req_id": "R2",
+      "type": "happy",
+      "given": "Khách hàng chọn một ngày cụ thể",
+      "when": "Khách hàng xem lịch trống",
+      "then": "Hệ thống hiển thị các khung giờ 60 phút từ 06:00 đến 22:00"
+    },
+    {
+      "id": "AC4",
+      "req_id": "R3",
+      "type": "boundary",
+      "given": "Khách hàng đã có 3 lượt đặt chưa thanh toán",
+      "when": "Khách hàng thực hiện đặt thêm 1 lượt chưa thanh toán nữa",
+      "then": "Hệ thống từ chối lượt đặt mới"
+    },
+    {
+      "id": "AC5",
+      "req_id": "R3",
+      "type": "negative",
+      "given": "Một sân đã được đặt vào một khung giờ nhất định",
+      "when": "Khách hàng khác cố gắng đặt chính sân đó vào cùng khung giờ đó",
+      "then": "Hệ thống không cho phép đặt trùng"
+    },
+    {
+      "id": "AC6",
+      "req_id": "R4",
+      "type": "boundary",
+      "given": "Khách hàng đã giữ chỗ nhưng chưa thanh toán",
+      "when": "Đã quá 15 phút kể từ lúc giữ chỗ",
+      "then": "Hệ thống tự động hủy lượt giữ chỗ đó"
+    },
+    {
+      "id": "AC7",
+      "req_id": "R4",
+      "type": "happy",
+      "given": "Khách hàng đã giữ chỗ",
+      "when": "Khách hàng thực hiện chuyển khoản trong vòng 15 phút",
+      "then": "Lượt đặt được xác nhận thành công"
+    },
+    {
+      "id": "AC8",
+      "req_id": "R5",
+      "type": "boundary",

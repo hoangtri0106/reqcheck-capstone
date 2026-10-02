@@ -1,0 +1,89 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "illogical",
+      "quotes": ["Mỗi sân có sức chứa 5000 người chơi cùng lúc."],
+      "question": "Sức chứa 5000 người cho một sân bóng mini có vẻ quá lớn so với thực tế. Con số này có chính xác không?"
+    },
+    {
+      "id": "Q2",
+      "type": "illogical",
+      "quotes": ["Mỗi lượt đặt kéo dài tối đa 90 giờ liên tục."],
+      "question": "Thời gian đặt sân tối đa 90 giờ (tương đương gần 4 ngày) liên tục cho một trận bóng mini có đúng là ý đồ nghiệp vụ không?"
+    },
+    {
+      "id": "Q3",
+      "type": "illogical",
+      "quotes": ["Phí đặt sân là -50.000 đồng mỗi giờ."],
+      "question": "Phí đặt sân mang giá trị âm (-50.000 đồng), nghĩa là hệ thống sẽ trả tiền cho khách hay đây là lỗi nhập liệu?"
+    },
+    {
+      "id": "Q4",
+      "type": "illogical",
+      "quotes": ["Khách hàng phải từ 200 tuổi trở lên mới được đăng ký tài khoản."],
+      "question": "Yêu cầu độ tuổi từ 200 tuổi trở lên là phi thực tế đối với con người. Độ tuổi đăng ký chính xác là bao nhiêu?"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Hệ thống quản lý sức chứa của mỗi sân bóng mini là 5000 người chơi cùng lúc.",
+      "source_quote": "Mỗi sân có sức chứa 5000 người chơi cùng lúc."
+    },
+    {
+      "id": "R2",
+      "text": "Hệ thống cho phép đặt sân với thời gian kéo dài tối đa 90 giờ liên tục.",
+      "source_quote": "Mỗi lượt đặt kéo dài tối đa 90 giờ liên tục."
+    },
+    {
+      "id": "R3",
+      "text": "Hệ thống tính phí đặt sân là -50.000 đồng mỗi giờ.",
+      "source_quote": "Phí đặt sân là -50.000 đồng mỗi giờ."
+    },
+    {
+      "id": "R4",
+      "text": "Hệ thống yêu cầu khách hàng phải từ 200 tuổi trở lên mới được đăng ký tài khoản.",
+      "source_quote": "Khách hàng phải từ 200 tuổi trở lên mới được đăng ký tài khoản."
+    },
+    {
+      "id": "R5",
+      "text": "Khách hàng đặt sân qua ứng dụng và thanh toán bằng chuyển khoản.",
+      "source_quote": "Khách hàng đặt sân qua ứng dụng và thanh toán bằng chuyển khoản."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC1",
+      "req_id": "R4",
+      "type": "boundary",
+      "given": "Khách hàng đang ở màn hình đăng ký tài khoản",
+      "when": "Khách hàng nhập độ tuổi là 200",
+      "then": "Hệ thống cho phép đăng ký tài khoản thành công"
+    },
+    {
+      "id": "AC2",
+      "req_id": "R4",
+      "type": "negative",
+      "given": "Khách hàng đang ở màn hình đăng ký tài khoản",
+      "when": "Khách hàng nhập độ tuổi là 199",
+      "then": "Hệ thống từ chối đăng ký và hiển thị thông báo lỗi"
+    },
+    {
+      "id": "AC3",
+      "req_id": "R5",
+      "type": "happy",
+      "given": "Khách hàng đã đăng nhập vào ứng dụng",
+      "when": "Khách hàng tiến hành đặt sân và chọn phương thức thanh toán chuyển khoản",
+      "then": "Hệ thống ghi nhận đơn đặt sân và yêu cầu thực hiện thanh toán chuyển khoản"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "ILLOGICAL_DATA",
+      "message": "Tài liệu chứa các thông tin phi thực tế về sức chứa sân, thời gian đặt sân, phí đặt sân âm và độ tuổi đăng ký."
+    }
+  ]
+}

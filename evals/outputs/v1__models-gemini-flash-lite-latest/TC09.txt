@@ -1,0 +1,22 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "ambiguous",
+      "quotes": [
+        "Khách hàng có thể thực hiện thao tác số 1 trên hệ thống; hệ thống ghi nhận thao tác số 1 vào nhật ký và hiển thị thông báo xác nhận cho khách hàng sau khi hoàn tất thao tác này."
+      ],
+      "question": "Tài liệu đang mô tả các 'thao tác số X' (từ 1 đến 120) một cách chung chung mà không nêu rõ tên nghiệp vụ cụ thể của từng thao tác (ví dụ: đặt sân, hủy sân, thanh toán...). Xin vui lòng cung cấp tên nghiệp vụ cụ thể cho các thao tác này."
+    }
+  ],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": [
+    {
+      "code": "GENERIC_REQUIREMENTS",
+      "message": "Tài liệu chứa quá nhiều yêu cầu chung chung (thao tác số 1 đến 120) thiếu tên nghiệp vụ cụ thể."
+    }
+  ]
+}

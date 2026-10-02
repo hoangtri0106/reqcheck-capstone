@@ -1,0 +1,1 @@
+Hệ thống quản lý thư viện của trường cần chạy nhanh, giao diện dễ dùng, bảo mật tốt và phục vụ được nhiều người dùng cùng lúc. Sinh viên có thể mượn nhiều sách và trả sách đúng hạn.

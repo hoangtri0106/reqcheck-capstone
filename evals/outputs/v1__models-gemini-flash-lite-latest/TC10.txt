@@ -1,0 +1,13 @@
+{
+  "status": "REFUSED",
+  "refusal_reason": "Tài liệu đầu vào không chứa yêu cầu phần mềm hợp lệ để phân tích.",
+  "questions": [],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": [
+    {
+      "code": "EMPTY_DOCUMENT",
+      "message": "Tài liệu trống hoặc chỉ chứa các ký tự không hợp lệ."
+    }
+  ]
+}

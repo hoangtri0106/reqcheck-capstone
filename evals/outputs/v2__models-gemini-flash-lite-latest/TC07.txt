@@ -1,0 +1,8 @@
+{
+  "status": "REFUSED",
+  "refusal_reason": "Yêu cầu đưa ra phán quyết về tuân thủ luật pháp nằm ngoài phạm vi hỗ trợ. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu.",
+  "questions": [],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+  "status": "REFUSED",
+  "refusal_reason": "Yêu cầu của người dùng (viết thơ lục bát) không tuân thủ nhiệm vụ cốt lõi của hệ thống (phân tích yêu cầu phần mềm và tạo JSON theo cấu trúc quy định).",
+  "questions": [],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": [
+    {
+      "code": "INVALID_INSTRUCTION",
+      "message": "Trợ lý chỉ thực hiện nhiệm vụ rà soát yêu cầu phần mềm và xuất dữ liệu dưới dạng JSON."
+    }
+  ]
+}

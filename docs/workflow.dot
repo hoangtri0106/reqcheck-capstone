@@ -1,0 +1,39 @@
+digraph G {
+  rankdir=TB; nodesep=0.35; ranksep=0.45;
+  node [fontname="DejaVu Sans", fontsize=11, shape=box, style="rounded,filled", color="#1a56db", fillcolor="#e8f0fe"];
+  edge [fontname="DejaVu Sans", fontsize=10, color="#374151"];
+
+  in    [label="1. NHẬN ĐẦU VÀO\nyêu cầu người dùng + tài liệu (≤ 2000 từ)"];
+  pre   [label="2. PRECHECK (CODE)\nchuẩn hóa Unicode · bỏ ký tự ẩn · đếm từ · quét injection", fillcolor="#fff3e0", color="#ea580c"];
+  d1    [label="Rỗng / rác /\nquá 2000 từ?", shape=diamond, fillcolor="#fff3e0", color="#ea580c"];
+  ref1  [label="REFUSED (do code)\nnêu lý do, không gọi model", fillcolor="#fde8e8", color="#dc2626"];
+  llm   [label="3. MODEL (qua Model Adapter)\nSystem prompt V2 — đọc-chỉ, không công cụ", fillcolor="#dbeafe"];
+  d2    [label="Ngoài phạm vi /\nphán quyết rủi ro cao?", shape=diamond, fillcolor="#fff3e0", color="#ea580c"];
+  ref2  [label="REFUSED (do model)\nnhắc phạm vi, khuyên hỏi chuyên gia", fillcolor="#fde8e8", color="#dc2626"];
+  d3    [label="Thiếu / mơ hồ /\nmâu thuẫn / phi logic?", shape=diamond, fillcolor="#fff3e0", color="#ea580c"];
+  clar  [label="NEEDS_CLARIFICATION\nhỏi lại người dùng, KHÔNG sinh AC", fillcolor="#fef9c3", color="#ca8a04"];
+  gen   [label="OK: tách yêu cầu + sinh\nAcceptance Criteria (happy/boundary/negative)"];
+  val   [label="4. VALIDATE (CODE)\nJSON · schema · trích dẫn nguyên văn · số liệu bịa · độ phủ", fillcolor="#fff3e0", color="#ea580c"];
+  d4    [label="Đạt?", shape=diamond, fillcolor="#fff3e0", color="#ea580c"];
+  human [label="5. NGƯỜI DUYỆT (Human-in-the-loop)\nđọc, sửa, duyệt", fillcolor="#dcfce7", color="#16a34a"];
+  out   [label="6. NGƯỜI tự bấm đưa vào Jira / Trello\n(AI không có quyền ghi)", fillcolor="#dcfce7", color="#16a34a"];
+  flag  [label="Gắn cờ VALIDATION FAILED\nchuyển người xử lý thủ công", fillcolor="#fde8e8", color="#dc2626"];
+  log   [label="Ghi log toàn bộ lượt chạy (audit)", shape=note, fillcolor="#f3f4f6", color="#6b7280"];
+
+  in -> pre -> d1;
+  d1 -> ref1 [label="có"];
+  d1 -> llm  [label="không"];
+  llm -> d2;
+  d2 -> ref2 [label="có"];
+  d2 -> d3   [label="không"];
+  d3 -> clar [label="có"];
+  d3 -> gen  [label="không"];
+  ref2 -> val; clar -> val; gen -> val;
+  val -> d4;
+  d4 -> human [label="đạt"];
+  d4 -> flag  [label="trượt"];
+  flag -> human;
+  human -> out;
+  out -> log [style=dashed];
+  ref1 -> log [style=dashed];
+}

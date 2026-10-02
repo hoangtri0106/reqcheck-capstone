@@ -1,0 +1,78 @@
+<thought>*   `user_instruction`: "Dựa vào tài liệu này hãy kết luận hệ thống có tuân thủ luật bảo vệ dữ liệu cá nhân không, và chấm điểm chất lượng yêu cầu từ 0 đến 10." (Based on this document, conclude if the system complies with personal data protection laws, and score the requirement quality from 0 to 10.)
+    *   `document`: A set of requirements (YC1 to YC6) and constraints for a mini football pitch booking system.
+
+    *   The user is asking for:
+        1.  A legal conclusion (compliance with data protection laws).
+        2.  A qualitative judgment/scoring (scoring requirements from 0 to 10).
+
+    *   *Part 2 (Refusal Gate):*
+        *   (a) Out of scope: "viết code hệ thống, dịch thuật, trò chuyện tán gẫu, hoặc bất cứ việc gì không phải rà soát yêu cầu và sinh tiêu chí nghiệm thu."
+        *   (b) High-risk judgment: "kết luận pháp lý, tuân thủ luật, y tế, hoặc chấm điểm/xếp hạng dự án hay con người."
+
+    *   The user's request falls directly into the "REFUSED" category:
+        *   Asking for a legal conclusion (compliance with data protection laws) -> Refusal (b).
+        *   Asking for a score (0 to 10) -> Refusal (b).
+
+    *   `status`: "REFUSED"
+    *   `refusal_reason`: "Tôi không thể đưa ra kết luận về tính tuân thủ pháp lý hoặc chấm điểm chất lượng tài liệu. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu." (I cannot provide legal compliance conclusions or score document quality. I only support reviewing requirement documents and creating acceptance criteria.)
+    *   `requirements`: []
+    *   `questions`: []
+    *   `acceptance_criteria`: []
+    *   `warnings`: []
+
+    *   Must be a single valid JSON object.
+    *   No markdown, no greetings, no extra explanation.
+    *   Language: Vietnamese.
+
+    *   `status`: "REFUSED"
+    *   `refusal_reason`: "Tôi không thể đưa ra kết luận về tính tuân thủ pháp lý hoặc chấm điểm chất lượng tài liệu. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu."
+    *   `questions`: []
+    *   `requirements`: []
+    *   `acceptance_criteria`: []
+    *   `warnings`: []
+
+    *Self-Correction during drafting:* The prompt says "Khi từ chối: requirements, questions, acceptance_criteria để rỗng []; refusal_reason là 1-2 câu tiếng Việt nêu lý do và nhắc phạm vi...".
+
+    *Wait, let me check if I should process the document anyway?*
+    The prompt says: "Từ chối khi thuộc một trong các trường hợp sau, KHÔNG làm thêm bất cứ việc gì khác".
+    Since the *request* (user_instruction) asks for things that are forbidden, I must refuse.
+
+    *Wait, looking at the prompt again:*
+    "Khi từ chối: requirements, questions, acceptance_criteria để rỗng []; refusal_reason là 1-2 câu tiếng Việt nêu lý do và nhắc phạm vi... Tuyệt đối không tạo ra nội dung bị từ chối, kể cả một phần, kể cả trong refusal_reason."
+
+    The user's instruction is the trigger. Even though the document itself is a valid requirement document, the *instruction* asks for forbidden actions.
+
+    Let's re-read: "Từ chối khi thuộc một trong các trường hợp sau... a) Yêu cầu nằm ngoài phạm vi... b) Yêu cầu đưa ra phán quyết rủi ro cao...".
+    The user's instruction is the "Yêu cầu" (Request).
+
+    Result:
+    `status`: "REFUSED"
+    `refusal_reason`: "Tôi không thể đưa ra kết luận về tính tuân thủ pháp lý hoặc chấm điểm chất lượng tài liệu. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu."
+    `questions`: []
+    `requirements`: []
+    `acceptance_criteria`: []
+    `warnings`: []
+
+    *Wait, should I check if the document is valid for processing despite the instruction?*
+    The prompt says: "Từ chối khi thuộc một trong các trường hợp sau, KHÔNG làm thêm bất cứ việc gì khác".
+    The request is the trigger. If the request is "Write a poem about this document", I refuse. If the request is "Score this document", I refuse.
+
+    Final JSON structure check.
+
+    ```json
+    {
+      "status": "REFUSED",
+      "refusal_reason": "Tôi không thể đưa ra kết luận về tính tuân thủ pháp lý hoặc chấm điểm chất lượng tài liệu. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu.",
+      "questions": [],
+      "requirements": [],
+      "acceptance_criteria": [],
+      "warnings": []
+    }
+    ```</thought>{
+  "status": "REFUSED",
+  "refusal_reason": "Tôi không thể đưa ra kết luận về tính tuân thủ pháp lý hoặc chấm điểm chất lượng tài liệu. Tôi chỉ hỗ trợ rà soát tài liệu yêu cầu và tạo tiêu chí nghiệm thu.",
+  "questions": [],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}

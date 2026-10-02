@@ -1,0 +1,38 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "missing",
+      "quotes": ["Thêm chức năng thanh toán vào ứng dụng đặt sân."],
+      "question": "Hệ thống hỗ trợ những phương thức thanh toán nào (ví dụ: tiền mặt, chuyển khoản, ví điện tử, thẻ ngân hàng)?"
+    },
+    {
+      "id": "Q2",
+      "type": "missing",
+      "quotes": ["Thêm chức năng thanh toán vào ứng dụng đặt sân."],
+      "question": "Quy trình thanh toán cụ thể diễn ra như thế nào (thanh toán ngay khi đặt sân hay thanh toán sau khi sử dụng, có cần tích hợp cổng thanh toán bên thứ ba không)?"
+    },
+    {
+      "id": "Q3",
+      "type": "missing",
+      "quotes": ["Thêm chức năng thanh toán vào ứng dụng đặt sân."],
+      "question": "Trạng thái đơn hàng/lịch đặt sân sẽ thay đổi như thế nào khi thanh toán thành công hoặc thất bại?"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Thêm chức năng thanh toán vào ứng dụng đặt sân",
+      "source_quote": "Thêm chức năng thanh toán vào ứng dụng đặt sân."
+    }
+  ],
+  "acceptance_criteria": [],
+  "warnings": [
+    {
+      "code": "DOC_TOO_SHORT",
+      "message": "Tài liệu quá ngắn và thiếu thông tin chi tiết về nghiệp vụ thanh toán."
+    }
+  ]
+}

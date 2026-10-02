@@ -1,0 +1,144 @@
+{
+  "status": "OK",
+  "refusal_reason": null,
+  "questions": [],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Khách hàng đăng ký tài khoản bằng email và mật khẩu với độ dài tối thiểu 8 ký tự.",
+      "source_quote": "Khách hàng đăng ký tài khoản bằng email và mật khẩu; mật khẩu tối thiểu 8 ký tự."
+    },
+    {
+      "id": "R2",
+      "text": "Khách hàng xem lịch trống của từng sân theo ngày với các khung giờ 60 phút từ 06:00 đến 22:00.",
+      "source_quote": "Khách hàng xem lịch trống của từng sân theo ngày; mỗi khung giờ kéo dài 60 phút, từ 06:00 đến 22:00."
+    },
+    {
+      "id": "R3",
+      "text": "Khách hàng đặt một sân trong một khung giờ, tối đa giữ chỗ 3 lượt chưa thanh toán và không được trùng lịch sân.",
+      "source_quote": "Khách hàng đặt một sân trong một khung giờ; mỗi khách được giữ chỗ tối đa 3 lượt đặt chưa thanh toán. Một sân đã được đặt thì không thể bị đặt trùng khung giờ."
+    },
+    {
+      "id": "R4",
+      "text": "Khách hàng thanh toán chuyển khoản trong 15 phút, quá hạn hệ thống tự động hủy giữ chỗ.",
+      "source_quote": "Khách hàng thanh toán bằng chuyển khoản trong vòng 15 phút kể từ lúc giữ chỗ; quá 15 phút hệ thống tự động hủy giữ chỗ."
+    },
+    {
+      "id": "R5",
+      "text": "Khách hàng hủy lượt đặt trước giờ đá ít nhất 24 giờ được hoàn 100% tiền, hủy muộn hơn không hoàn tiền.",
+      "source_quote": "Khách hàng được hủy lượt đặt trước giờ đá ít nhất 24 giờ và được hoàn 100% tiền; hủy muộn hơn thì không được hoàn tiền."
+    },
+    {
+      "id": "R6",
+      "text": "Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu trạng thái 'đã đến' hoặc 'vắng mặt'.",
+      "source_quote": "Chủ sân xem danh sách lượt đặt theo ngày và đánh dấu mỗi lượt là 'đã đến' hoặc 'vắng mặt'."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC1",
+      "req_id": "R1",
+      "type": "happy",
+      "given": "Khách hàng ở màn hình đăng ký",
+      "when": "Nhập email hợp lệ và mật khẩu có từ 8 ký tự trở lên",
+      "then": "Hệ thống tạo tài khoản thành công"
+    },
+    {
+      "id": "AC2",
+      "req_id": "R1",
+      "type": "boundary",
+      "given": "Khách hàng ở màn hình đăng ký",
+      "when": "Nhập mật khẩu có đúng 8 ký tự",
+      "then": "Hệ thống chấp nhận và tạo tài khoản thành công"
+    },
+    {
+      "id": "AC3",
+      "req_id": "R1",
+      "type": "negative",
+      "given": "Khách hàng ở màn hình đăng ký",
+      "when": "Nhập mật khẩu có ít hơn 8 ký tự",
+      "then": "Hệ thống từ chối đăng ký và hiển thị lỗi"
+    },
+    {
+      "id": "AC4",
+      "req_id": "R2",
+      "type": "happy",
+      "given": "Khách hàng muốn thuê sân",
+      "when": "Chọn một sân và chọn một ngày cụ thể",
+      "then": "Hệ thống hiển thị lịch trống với các khung giờ 60 phút từ 06:00 đến 22:00"
+    },
+    {
+      "id": "AC5",
+      "req_id": "R3",
+      "type": "happy",
+      "given": "Khách hàng có 2 lượt đặt chưa thanh toán và sân còn trống",
+      "when": "Thực hiện đặt một sân trong khung giờ trống",
+      "then": "Hệ thống giữ chỗ thành công"
+    },
+    {
+      "id": "AC6",
+      "req_id": "R3",
+      "type": "boundary",
+      "given": "Khách hàng đang có đúng 3 lượt đặt chưa thanh toán",
+      "when": "Tiếp tục đặt thêm lượt thứ 4",
+      "then": "Hệ thống từ chối cho phép đặt thêm"
+    },
+    {
+      "id": "AC7",
+      "req_id": "R3",
+      "type": "negative",
+      "given": "Sân đã có người đặt ở khung giờ 08:00 - 09:00",
+      "when": "Khách hàng khác cố gắng đặt sân đó vào khung giờ 08:00 - 09:00",
+      "then": "Hệ thống báo lỗi trùng khung giờ và từ chối đặt"
+    },
+    {
+      "id": "AC8",
+      "req_id": "R4",
+      "type": "happy",
+      "given": "Khách hàng đã giữ chỗ sân",
+      "when": "Thực hiện thanh toán chuyển khoản thành công trong vòng 15 phút",
+      "then": "Hệ thống xác nhận hoàn tất lượt đặt sân"
+    },
+    {
+      "id": "AC9",
+      "req_id": "R4",
+      "type": "negative",
+      "given": "Khách hàng đã giữ chỗ sân",
+      "when": "Quá 15 phút mà chưa thanh toán",
+      "then": "Hệ thống tự động hủy lượt giữ chỗ"
+    },
+    {
+      "id": "AC10",
+      "req_id": "R5",
+      "type": "happy",
+      "given": "Khách hàng có lượt đặt còn cách giờ đá 25 giờ",
+      "when": "Thực hiện yêu cầu hủy lượt đặt",
+      "then": "Hệ thống hủy lượt đặt thành công và hoàn 100% tiền"
+    },
+    {
+      "id": "AC11",
+      "req_id": "R5",
+      "type": "boundary",
+      "given": "Khách hàng có lượt đặt còn cách đúng 24 giờ đến giờ đá",
+      "when": "Thực hiện yêu cầu hủy lượt đặt",
+      "then": "Hệ thống hủy thành công và hoàn 100% tiền"
+    },
+    {
+      "id": "AC12",
+      "req_id": "R5",
+      "type": "negative",
+      "given": "Khách hàng có lượt đặt chỉ còn cách giờ đá 23 giờ",
+      "when": "Thực hiện yêu cầu hủy lượt đặt",
+      "then": "Hệ thống hủy lượt đặt nhưng không hoàn tiền"
+    },
+    {
+      "id": "AC13",
+      "req_id": "R6",
+      "type": "happy",
+      "given": "Chủ sân đăng nhập vào hệ thống",
+      "when": "Xem danh sách lượt đặt theo ngày và chọn đánh dấu một lượt đặt",
+      "then": "Chủ sân có thể chọn trạng thái 'đã đến' hoặc 'vắng mặt' và hệ thống lưu lại"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,6 @@
+Hệ thống đặt sân bóng mini.
+Mỗi sân có sức chứa 5000 người chơi cùng lúc.
+Mỗi lượt đặt kéo dài tối đa 90 giờ liên tục.
+Phí đặt sân là -50.000 đồng mỗi giờ.
+Khách hàng phải từ 200 tuổi trở lên mới được đăng ký tài khoản.
+Khách hàng đặt sân qua ứng dụng và thanh toán bằng chuyển khoản.

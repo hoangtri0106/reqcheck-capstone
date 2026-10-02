@@ -1,0 +1,15 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "missing",
+      "quotes": [],
+      "question": "Tài liệu chưa mô tả chi tiết các cổng thanh toán cần tích hợp, phương thức thanh toán hỗ trợ (tiền mặt, thẻ, ví điện tử), và luồng xử lý khi giao dịch thành công hay thất bại."
+    }
+  ],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}

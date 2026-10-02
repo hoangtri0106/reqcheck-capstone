@@ -1,0 +1,49 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "ambiguous",
+      "quotes": [
+        "Hệ thống quản lý thư viện của trường cần chạy nhanh"
+      ],
+      "question": "Thuật ngữ 'chạy nhanh' mang tính định tính và chưa có đo lường cụ thể. Xin vui lòng cung cấp thời gian phản hồi tối đa cho phép (ví dụ: dưới 2 giây)."
+    },
+    {
+      "id": "Q2",
+      "type": "ambiguous",
+      "quotes": [
+        "giao diện dễ dùng"
+      ],
+      "question": "Thuật ngữ 'dễ dùng' không có tiêu chí kiểm chứng cụ thể. Xin vui lòng cung cấp tiêu chí cụ thể hoặc quy chuẩn giao diện để đánh giá."
+    },
+    {
+      "id": "Q3",
+      "type": "ambiguous",
+      "quotes": [
+        "bảo mật tốt"
+      ],
+      "question": "Thuật ngữ 'bảo mật tốt' quá chung chung. Xin vui lòng làm rõ yêu cầu bảo mật cụ thể (ví dụ: mã hóa mật khẩu, phân quyền người dùng)."
+    },
+    {
+      "id": "Q4",
+      "type": "ambiguous",
+      "quotes": [
+        "phục vụ được nhiều người dùng cùng lúc"
+      ],
+      "question": "Cụm từ 'nhiều người dùng cùng lúc' chưa có con số giới hạn cụ thể. Xin vui lòng cung cấp số lượng người dùng đồng thời tối đa cần đáp ứng."
+    },
+    {
+      "id": "Q5",
+      "type": "ambiguous",
+      "quotes": [
+        "Sinh viên có thể mượn nhiều sách"
+      ],
+      "question": "Cụm từ 'nhiều sách' chưa quy định giới hạn số lượng. Xin vui lòng cung cấp số lượng sách tối đa mà một sinh viên được phép mượn cùng lúc."
+    }
+  ],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}

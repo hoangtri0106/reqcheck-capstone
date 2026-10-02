@@ -1,0 +1,18 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "contradiction",
+      "quotes": [
+        "Khách hàng được hủy lượt đặt sân miễn phí vào bất cứ lúc nào trước giờ đá.",
+        "Nếu khách hàng hủy lượt đặt sân, hệ thống thu 100% phí và không hoàn tiền trong mọi trường hợp."
+      ],
+      "question": "Tài liệu đang mâu thuẫn về chính sách hủy lịch (YC3 quy định hủy miễn phí bất cứ lúc nào trước giờ đá, trong khi YC6 quy định thu 100% phí và không hoàn tiền trong mọi trường hợp). Xin vui lòng làm rõ chính sách hủy sân thực tế."
+    }
+  ],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}

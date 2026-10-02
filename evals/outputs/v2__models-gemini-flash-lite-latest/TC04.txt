@@ -1,0 +1,33 @@
+{
+  "status": "NEEDS_CLARIFICATION",
+  "refusal_reason": null,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "illogical",
+      "quotes": ["Mỗi sân có sức chứa 5000 người chơi cùng lúc."],
+      "question": "Sức chứa 5000 người chơi cùng lúc cho một sân bóng mini là giá trị phi thực tế. Xin vui lòng cung cấp lại sức chứa chính xác."
+    },
+    {
+      "id": "Q2",
+      "type": "illogical",
+      "quotes": ["Mỗi lượt đặt kéo dài tối đa 90 giờ liên tục."],
+      "question": "Thời lượng đặt sân 90 giờ liên tục cho một lượt đặt là không hợp lý. Xin vui lòng xác định lại giới hạn thời gian tối đa."
+    },
+    {
+      "id": "Q3",
+      "type": "illogical",
+      "quotes": ["Phí đặt sân là -50.000 đồng mỗi giờ."],
+      "question": "Phí đặt sân mang giá trị âm (-50.000 đồng). Xin vui lòng cung cấp mức phí đặt sân hợp lệ."
+    },
+    {
+      "id": "Q4",
+      "type": "illogical",
+      "quotes": ["Khách hàng phải từ 200 tuổi trở lên mới được đăng ký tài khoản."],
+      "question": "Yêu cầu độ tuổi từ 200 tuổi trở lên là vô lý. Xin vui lòng cung cấp độ tuổi hợp lệ cho khách hàng."
+    }
+  ],
+  "requirements": [],
+  "acceptance_criteria": [],
+  "warnings": []
+}
