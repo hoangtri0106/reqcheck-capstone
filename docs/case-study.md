@@ -23,4 +23,4 @@
 3. Bộ chấm cũng có thể sai. Mình phát hiện bộ chấm đánh nhầm số biên là "bịa" và đọc nhầm JSON nháp của Gemma, nên đã sửa và chấm lại toàn bộ bằng cùng một luật, ghi lại số trước và sau khi sửa thay vì âm thầm đổi.
 4. Đổi model không chỉ là đổi tham số: phải xử lý định dạng đầu ra riêng của từng model.
 
-Repo: [[ĐIỀN: link GitHub]] · Trang trải nghiệm: [[ĐIỀN: link GitHub Pages]]
+Repo: https://github.com/hoangtri0106/reqcheck-capstone · Trang trải nghiệm: https://hoangtri0106.github.io/reqcheck-capstone/
