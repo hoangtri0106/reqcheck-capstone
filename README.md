@@ -1,7 +1,7 @@
 # ReqCheck — Trợ lý AI rà soát yêu cầu phần mềm & sinh Acceptance Criteria
 
 > Bài tập cuối khóa: *Trí tuệ Nhân tạo Ứng dụng & Kỹ năng Kỹ sư Kỷ nguyên mới* (Buổi 12).
-> Tác giả: [[ĐIỀN: họ tên — MSSV]]
+> Tác giả: Nguyễn Hoàng Trí
 
 **ReqCheck** đọc một tài liệu yêu cầu phần mềm sơ sài và trả về JSON gồm: các yêu cầu đã tách, **câu hỏi làm rõ** (thiếu / mơ hồ / mâu thuẫn / phi logic), và **Acceptance Criteria** dạng Given/When/Then để con người duyệt.
 
@@ -22,7 +22,7 @@ Sơ đồ đầy đủ: [`docs/workflow-diagram.png`](docs/workflow-diagram.png)
 
 Số liệu là kết quả sau khi sửa bộ chấm (chấm lần đầu: 3, 8, 5). Việc sửa, lý do và số trước/sau được ghi đầy đủ trong [`docs/comparison-v1-v2.md`](docs/comparison-v1-v2.md). Còn một hồi quy chưa sửa (TC02) được công khai trong [`evals/failure-analysis.md`](evals/failure-analysis.md).
 
-**Trải nghiệm trực tiếp:** [[ĐIỀN: https://<tên-github>.github.io/reqcheck-capstone/]] (trang xem câu trả lời gốc của từng model và thử lớp kiểm tra đầu vào; bật GitHub Pages: Settings → Pages → Branch `main`, thư mục `/docs`).
+**Trải nghiệm trực tiếp:** https://hoangtri0106.github.io/reqcheck-capstone/ (trang xem câu trả lời gốc của từng model và thử lớp kiểm tra đầu vào; bật GitHub Pages: Settings → Pages → Branch `main`, thư mục `/docs`).
 
 ## Cấu trúc repo
 ```
